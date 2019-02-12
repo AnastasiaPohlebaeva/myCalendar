@@ -16,6 +16,15 @@ export const store = {
             }
         })
     },
+    updateEvent(dayId, eventIndex, newEventTitle) {
+        const day = this.state.defData.find(day => day.id == dayId);
+        if (newEventTitle == '') {
+            newEventTitle = day.events[eventIndex].title;
+        }
+        day.events[eventIndex].title = newEventTitle;
+        day.events[eventIndex].edit = false;
+        
+    },
     submitEvent(title) {
         const activeDay = this.getActiveDay();
         activeDay.events.push({ title, edit:false });
@@ -24,10 +33,8 @@ export const store = {
         const day = this.state.defData.find(day => day.id == dayId);
         day.events[eventIndex].edit = true;
     },
-    updateEvent(dayId, eventIndex) {
-    
-    },
-    deleteEvent(dayId, index) {
-    
+    deleteEvent(dayId, eventIndex) {
+        const day = this.state.defData.find(day => day.id == dayId);
+        day.events.splice(eventIndex, 1);
     }
 }

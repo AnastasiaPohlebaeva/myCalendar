@@ -4,7 +4,8 @@ export const defData = [
         name: 'Monday',
         events: [
             { title: 'Study', edit: false },
-            { title: 'Work', edit: false }
+            { title: 'Work', edit: false },
+            { title: 'Gym', edit: false }
         ],
         active: true
     },
@@ -19,35 +20,41 @@ export const defData = [
     {
         id: 3,
         name: 'Wednesday',
-        events: [],
+        events: [
+            { title: 'Gym', edit: false }
+        ],
         active: false
     },
     {
         id: 4,
         name: 'Thursday',
-        events: [
-            { title: 'Shopping', edit: false }
-        ],
+        events: [],
         active: false
     },
     {
         id: 5,
         name: 'Friday',
-        events: [],
+        events: [
+            { title: 'Work', edit: false },
+            { title: 'Gym', edit: false }
+        ],
         active: false
     },
     {
         id: 6,
         name: 'Saturday',
         events: [
-            { title: 'Watching a film', edit: false }
+            { title: 'Watching a film', edit: false },
+            { title: 'Shopping', edit: false }
         ],
         active: false
     },
     {
         id: 7,
         name: 'Sunday',
-        events: [],
+        events: [
+            { title: 'Cleaning', edit: false }
+        ],
         active: false
     }
 ]

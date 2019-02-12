@@ -8,8 +8,8 @@
             </div>
         </div>
         <div class="event__inner" v-if="event.edit">
-            <input class="event__input" type="text" :value="event.title" required/>
-            <div class="btn" @click="updateEvent(day.id, index)">Save</div>
+            <input class="event__input" type="text" :placeholder="event.title" required v-model="newEventTitle"/>
+            <div class="btn" @click="updateEvent(day.id, index, newEventTitle)">Save</div>
         </div>
     </div>
 </template>
@@ -20,12 +20,17 @@
     export default {
         name: 'Event',
         props: ['day', 'event', 'index'],
+        data() {
+            return {
+                newEventTitle: ''
+            }
+        },
         methods: {
+            updateEvent(dayId, index, newEeventTitle) {
+                store.updateEvent(dayId, index, newEeventTitle)
+            },
             editEvent(dayId, index) {
                 store.editEvent(dayId, index)
-            },
-            updateEvent() {
-                store.updateEvent(dayId, index)
             },
             deleteEvent(dayId, index) {
                 store.deleteEvent(dayId, index)
